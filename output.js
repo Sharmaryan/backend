@@ -1,5 +1,5 @@
-const x = 1;
-const y = 2;
+// const x = 1;
+// const y = 2;
 
 // format variable to string
 // %f
@@ -21,17 +21,33 @@ const y = 2;
 // const function2 = () => function1();
 // function2();
 
-const sum = () => console.log(`the sum of 2 and 3 is : ${(2+3)}`);
-const multiply = () => console.log(`the multiplication of 2 and 3 is : ${(2*3)}`)
+// const sum = () => console.log(`the sum of 2 and 3 is : ${(2+3)}`);
+// const multiply = () => console.log(`the multiplication of 2 and 3 is : ${(2*3)}`)
 
 
-const measureTime = () => {
-    console.time('sum');
-    sum();
-    console.timeEnd('sum');
-    console.time('multiply');
-    multiply();
-    console.timeEnd('multiply');
+// const measureTime = () => {
+//     console.time('sum');
+//     sum();
+//     console.timeEnd('sum');
+//     console.time('multiply');
+//     multiply();
+//     console.timeEnd('multiply');
 
-}
-measureTime();
+// }
+// measureTime();
+
+// Progress Bar
+
+// const ProgressBar = require('progress');
+// const bar = new ProgressBar("downloading [:bar] :rate/bps :percent :etas",{
+//     total:20,
+// })
+
+// const timer = setInterval(() => {
+//     bar.tick();
+//     if(bar.complete){
+//         clearInterval(timer);
+//     }
+// }, 100);
+const chalk = require('chalk');
+console.log(chalk.green('this is nodejs tutorial'))
