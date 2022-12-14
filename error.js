@@ -4,13 +4,14 @@ const error = new Error('something went wrong');
 
 // throw new Error('I am error object');
 
-const {CustomError} = require('./CustomError');
+const { CustomError } = require('./CustomError');
 
 // throw new CustomError('this is a custom error object')
 
-function doSomething(){
-    // console.log('i am from do function')
-    const data = fetch('localhost:3000/api');
+function doSomething() {
+    console.log('i am from do function')
+    // const data = fetch('localhost:3000/api');
+    return "i am from do function"
 }
 
 // try {
@@ -24,10 +25,25 @@ function doSomething(){
 
 // uncaught exception
 
-process.on('uncaughtException',(error) => {
-console.log('there was an uncaughtexception')
-process.exit(1);
+process.on('uncaughtException', (error) => {
+    console.log('there was an uncaughtexception')
+    process.exit(1);
 });
 
-doSomething();
+// doSomething();
 
+// Exception with promise
+
+const promise = new Promise((resolve, reject) => {
+    if (true)
+        resolve(doSomething())
+    else
+        resolve(doSomething())
+})
+
+
+promise.then((value) => console.log(value)).catch((err) => {
+    console.log('error occured')
+    console.log(err);
+}
+)
