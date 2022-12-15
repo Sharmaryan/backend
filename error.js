@@ -9,9 +9,9 @@ const { CustomError } = require('./CustomError');
 // throw new CustomError('this is a custom error object')
 
 function doSomething() {
+    const data = fetch('localhost:3000/api');
     console.log('i am from do function')
-    // const data = fetch('localhost:3000/api');
-    return "i am from do function"
+    // return "i am from do function"
 }
 
 // try {
@@ -25,25 +25,41 @@ function doSomething() {
 
 // uncaught exception
 
-process.on('uncaughtException', (error) => {
-    console.log('there was an uncaughtexception')
-    process.exit(1);
-});
+// process.on('uncaughtException', (error) => {
+//     console.log('there was an uncaughtexception')
+//     process.exit(1);
+// });
 
 // doSomething();
 
 // Exception with promise
 
-const promise = new Promise((resolve, reject) => {
-    if (true)
-        resolve(doSomething())
-    else
-        resolve(doSomething())
-})
+// const promise = new Promise((resolve, reject) => {
+//     if (true)
+//         resolve(doSomething())
+//     else
+//         resolve(doSomething())
+// })
 
 
-promise.then((value) => console.log(value)).catch((err) => {
-    console.log('error occured')
-    console.log(err);
+// promise.then((value) => console.log(value)).catch((err) => {
+//     console.log('error occured')
+//     console.log(err);
+// }
+// )
+
+
+// Exccception with async await
+
+const someFunction = async () => {
+    try {
+        await doSomething();
+    } catch (err) {
+        throw new CustomError(err.message);
+    }
 }
-)
+
+someFunction();
+
+
+
