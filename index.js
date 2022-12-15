@@ -81,7 +81,7 @@ const writingInFile = async () => {
     try {
 
         await fsPromise.writeFile(textFile,"\n it's awesome", {flag:'a+'});
-        // await fsPromise.appendFile(textFile, '\n this is the file appender');
+        await fsPromise.appendFile(textFile, '\n this is the file appender');
         const data = await fsPromise.readFile(textFile,'utf-8')
         console.log(data)
     } catch (err) {
