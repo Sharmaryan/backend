@@ -1,4 +1,0 @@
-
- it's awesome
- it's awesome
- this is the file appender
